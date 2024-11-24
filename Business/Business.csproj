@@ -14,7 +14,11 @@
     <ItemGroup>
       <Folder Include="Abstract\" />
       <Folder Include="Concrete\" />
-      <Folder Include="Handlers\" />
+      <Folder Include="Handlers\Lottery\Queries\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 
 </Project>
