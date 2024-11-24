@@ -9,5 +9,5 @@ public class Wine : IEntity
     public int LotteryId { get; set; }
 
     public string WineName { get; set; }
-    public double Price { get; set; }
+    public decimal Price { get; set; }
 }
