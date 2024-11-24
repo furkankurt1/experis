@@ -15,4 +15,60 @@
 
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="DataAccess\**" />
+      <Compile Remove="Business\**" />
+      <Compile Remove="Core\**" />
+      <Compile Remove="Entities\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="DataAccess\**" />
+      <EmbeddedResource Remove="Business\**" />
+      <EmbeddedResource Remove="Core\**" />
+      <EmbeddedResource Remove="Entities\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="DataAccess\**" />
+      <Content Remove="Business\**" />
+      <Content Remove="Core\**" />
+      <Content Remove="Entities\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="DataAccess\**" />
+      <None Remove="Business\**" />
+      <None Remove="Core\**" />
+      <None Remove="Entities\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="DataAccess\bin\Debug\net6.0\DataAccess.deps.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\obj\DataAccess.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Business\bin\Debug\net6.0\Business.deps.json" />
+      <_ContentIncludedByDefault Remove="Business\obj\Business.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Business\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Business\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Core\bin\Debug\net6.0\Core.deps.json" />
+      <_ContentIncludedByDefault Remove="Core\obj\Core.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Core\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Core\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Entities\bin\Debug\net6.0\Entities.deps.json" />
+      <_ContentIncludedByDefault Remove="Entities\obj\Entities.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Entities\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Entities\obj\project.packagespec.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="Business\Business.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="Business\Business.csproj" />
+    </ItemGroup>
+
 </Project>
