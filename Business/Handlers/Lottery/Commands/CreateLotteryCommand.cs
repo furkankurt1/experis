@@ -1,10 +1,10 @@
-﻿using Core.Utilities;
+﻿using Business.Handlers.Lottery.DTOs;
+using Core.Utilities;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using Core.Utilities.Validation;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using Experis.Business.Handlers.Lottery.DTOs;
 using MediatR;
 using IResult = Core.Utilities.Results.IResult;
 
@@ -122,6 +122,12 @@ namespace Business.Handlers.Lottery.Commands
 
             private Task<IResult> ValidateWineNamesAndPrices(List<WineRequestDto> wines)
             {
+                // Eğer yalnızca bir şarap varsa, kontrolü atla
+                if (wines.Count == 1)
+                {
+                    return Task.FromResult<IResult>(new SuccessResult());
+                }
+
                 // Check for duplicate names
                 var duplicateNames = wines.GroupBy(w => w.Name)
                     .Where(group => group.Count() > 1)
@@ -141,6 +147,7 @@ namespace Business.Handlers.Lottery.Commands
 
                 return Task.FromResult<IResult>(new SuccessResult());
             }
+
 
             #endregion
         }

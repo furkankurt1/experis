@@ -1,12 +1,13 @@
 using Business.Handlers.Lottery.Commands;
-using Experis.Business.Handlers.Lottery.Queries;
+using Business.Handlers.Lottery.Queries;
+using Business.Handlers.Ticket.Commands;
+using Business.Handlers.Ticket.Queires;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Experis.Controllers;
 
-[ApiController]
-[Route("[controller]")]
+[ApiController] [Route("[controller]")]
 public class LotteriesController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -26,33 +27,13 @@ public class LotteriesController : ControllerBase
         return result.Success ? Ok(result) : BadRequest(result);
     }
 
-    [HttpPost("BuyTicket", Name = "BuyTicket")]
+    [HttpGet("GetAllLotteries", Name = "GetAllLotteries")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> BuyTicket([FromBody] BuyTicketCommand command)
+    public async Task<IActionResult> GetAllLotteries()
     {
-        var result = await _mediator.Send(command);
-        return result.Success ? Ok(result) : BadRequest(result);
-    }
-
-    [HttpGet("GetAvailableTickets", Name = "GetAvailableTickets")]
-    [Produces("application/json")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetAvailableTickets([FromQuery] GetAvailableTicketsQuery query)
-    {
-        var result = await _mediator.Send(query);
-        return result.Success ? Ok(result) : BadRequest(result);
-    }
-
-    [HttpGet("GetWinners", Name = "GetWinnersQuery")]
-    [Produces("application/json")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetWinnersQuery([FromQuery] GetWinnersQuery query)
-    {
-        var result = await _mediator.Send(query);
+        var result = await _mediator.Send(new GetAllLotteriesQuery());
         return result.Success ? Ok(result) : BadRequest(result);
     }
 }

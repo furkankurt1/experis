@@ -14,7 +14,7 @@
     <ItemGroup>
       <Folder Include="Abstract\" />
       <Folder Include="Concrete\" />
-      <Folder Include="Handlers\Lottery\Queries\" />
+      <Folder Include="Handlers\Ticket\DTOs\" />
     </ItemGroup>
 
     <ItemGroup>

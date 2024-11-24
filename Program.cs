@@ -16,10 +16,12 @@ builder.Services.AddDbContext<ProjectDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ILotteryRepository, LotteryRepository>();
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IWineRepository, WineRepository>();
 
 
 builder.Services.AddMediatR(typeof(Program).Assembly);
+builder.Services.AddMediatR(typeof(CreateLotteryCommand).Assembly);
 builder.Services.AddMediatR(typeof(CreateLotteryCommand).Assembly);
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
