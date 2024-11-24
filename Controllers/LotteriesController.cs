@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Experis.Controllers;
 
-[ApiController] [Route("[controller]")]
+[ApiController]
+[Route("[controller]")]
 public class LotteriesController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -15,63 +16,43 @@ public class LotteriesController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost(Name = "CreateLottery")]
+    [HttpPost("CreateLottery", Name = "CreateLottery")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateLottery([FromBody] CreateLotteryCommand command)
     {
         var result = await _mediator.Send(command);
-        if (result.Success)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 
-    [HttpPost(Name = "BuyTicket")]
+    [HttpPost("BuyTicket", Name = "BuyTicket")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> BuyTicket([FromBody] BuyTicketCommand command)
     {
         var result = await _mediator.Send(command);
-        if (result.Success)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 
-    [HttpGet(Name = "GetAvailableTickets")]
+    [HttpGet("GetAvailableTickets", Name = "GetAvailableTickets")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetAvailableTickets([FromBody] GetAvailableTicketsQuery query)
+    public async Task<IActionResult> GetAvailableTickets([FromQuery] GetAvailableTicketsQuery query)
     {
         var result = await _mediator.Send(query);
-        if (result.Success)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 
-    [HttpGet(Name = "GetWinnersQuery")]
+    [HttpGet("GetWinners", Name = "GetWinnersQuery")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetWinnersQuery([FromBody] GetWinnersQuery query)
+    public async Task<IActionResult> GetWinnersQuery([FromQuery] GetWinnersQuery query)
     {
         var result = await _mediator.Send(query);
-        if (result.Success)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 }

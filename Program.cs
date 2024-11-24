@@ -1,3 +1,4 @@
+using Business.Handlers.Lottery.Commands;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EF;
 using MediatR;
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IWineRepository, WineRepository>();
 
 
 builder.Services.AddMediatR(typeof(Program).Assembly);
+builder.Services.AddMediatR(typeof(CreateLotteryCommand).Assembly);
+
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
