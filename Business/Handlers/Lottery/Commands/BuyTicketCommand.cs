@@ -7,7 +7,6 @@ public class BuyTicketCommand : IRequest<IResult>
 {
     public int LotteryId { get; set; }
     public int TicketId { get; set; }
-    public double Price { get; set; }
 
     public class BuyTicketCommandHandler : IRequestHandler<BuyTicketCommand, IResult>
     {

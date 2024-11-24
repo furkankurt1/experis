@@ -11,6 +11,7 @@ namespace DataAccess.Concrete.EF
 
         public DbSet<Wine> Wines { get; set; }
         public DbSet<Lottery> Lotteries { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
