@@ -8,7 +8,7 @@ namespace Business.Handlers.Lottery.Commands;
 public class CreateLotteryCommand : IRequest<IResult>
 {
     public string LotteryName { get; set; }
-    public List<WineDto> Wines { get; set; } = new List<WineDto>();
+    public List<WineRequestDto> Wines { get; set; } = new List<WineRequestDto>();
 
 
     public class CreateLotteryCommandHandler : IRequestHandler<CreateLotteryCommand, IResult>

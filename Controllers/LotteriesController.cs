@@ -15,7 +15,6 @@ public class LotteriesController : ControllerBase
         _mediator = mediator;
     }
 
-
     [HttpPost(Name = "CreateLottery")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -30,7 +29,7 @@ public class LotteriesController : ControllerBase
 
         return BadRequest(result);
     }
-    
+
     [HttpPost(Name = "BuyTicket")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -45,7 +44,7 @@ public class LotteriesController : ControllerBase
 
         return BadRequest(result);
     }
-    
+
     [HttpGet(Name = "GetAvailableTickets")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -60,7 +59,7 @@ public class LotteriesController : ControllerBase
 
         return BadRequest(result);
     }
-    
+
     [HttpGet(Name = "GetWinnersQuery")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -75,6 +74,4 @@ public class LotteriesController : ControllerBase
 
         return BadRequest(result);
     }
-    
-    
 }
