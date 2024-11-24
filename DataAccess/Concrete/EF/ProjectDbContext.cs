@@ -39,8 +39,9 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             if (!optionsBuilder.IsConfigured)
             {
-                base.OnConfiguring(optionsBuilder.UseNpgsql(Configuration.GetConnectionString("ConnectionString"))
-                    .EnableSensitiveDataLogging());
+                base.OnConfiguring(
+                    optionsBuilder.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
+                        .EnableSensitiveDataLogging());
             }
         }
     }

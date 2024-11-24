@@ -3,7 +3,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract;
 
-public  interface IWineRepository : IEntityRepository<Wine>
+public  interface ILotteryRepository : IEntityRepository<Lottery>
 {
     
 }
